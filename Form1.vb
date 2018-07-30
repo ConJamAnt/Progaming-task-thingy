@@ -2,7 +2,7 @@ Public Class Form1
     'Creates variables
     Dim exp As Integer
     Dim levelUp As Integer = 50
-    Dim level As Integer
+    Dim level As Integer = 1
     Dim difficulty As String
     Dim Task As String
     Dim Task1 As Boolean = False
@@ -31,15 +31,18 @@ Public Class Form1
         End If
 
         'Assigns experience depending on difficulty of task and determines whether the player levels up.
-        If exp = level Then
-            level = level + 10
-            levelUp = levelUp + 1
+        If exp >= levelUp Then
+            levelUp = levelUp + 10
+            level = level + 1
+            exp = 0
         End If
 
         txtDifficulty1.Text = ""
         txtTask1.Text = ""
         Task1 = False
 
+        lblEXP.Text = ("EXP: " & exp)
+        lblLVL.Text = ("LVL: " & level)
     End Sub
 
     Private Sub btnNewTask_Click(sender As Object, e As EventArgs) Handles btnNewTask.Click
@@ -53,79 +56,91 @@ Public Class Form1
             txtTask1.Text = Task
             txtDifficulty1.Text = difficulty
             Task1 = True
-        ElseIf Task2 = False Then
-            txtTask2.Text = Task
-            txtDifficulty2.Text = difficulty
-            Task2 = True
-        ElseIf Task3 = False Then
-            txtTask3.Text = Task
-            txtDifficulty3.Text = difficulty
-            Task3 = True
+            'ElseIf Task2 = False Then
+            '    txtTask2.Text = Task
+            '    txtDifficulty2.Text = difficulty
+            '    Task2 = True
+            'ElseIf Task3 = False Then
+            '    txtTask3.Text = Task
+            '    txtDifficulty3.Text = difficulty
+            '    Task3 = True
+            'Else
+            '    MsgBox("You already have 3 ongoing tasks finish one before beginning another")
         Else
-            MsgBox("You already have 3 ongoing tasks finish one before beginning another")
+            MsgBox("You must complete your current task before you start another.")
         End If
     End Sub
 
-    Private Sub btnTaskComplete2_Click(sender As Object, e As EventArgs) Handles btnTaskComplete2.Click
-        'Creates a variable
-        Dim difficulty2 As String
-        'Assigns the variable with a value
-        difficulty2 = txtDifficulty1.Text
+    'Private Sub btnTaskComplete2_Click(sender As Object, e As EventArgs) Handles btnTaskComplete2.Click
+    '    'Creates a variable
+    '    Dim difficulty2 As String
+    '    'Assigns the variable with a value
+    '    difficulty2 = txtDifficulty2.Text
 
-        'Checks for the difficulty of the task
-        If difficulty2 = "Easy" Then
-            exp = exp + 10
+    '    'Checks for the difficulty of the task
+    '    If difficulty2 = "Easy" Then
+    '        exp = exp + 10
 
-        ElseIf difficulty2 = "Medium" Then
-            exp = exp + 20
+    '    ElseIf difficulty2 = "Medium" Then
+    '        exp = exp + 20
 
-        ElseIf difficulty2 = "Hard" Then
-            exp = exp + 30
+    '    ElseIf difficulty2 = "Hard" Then
+    '        exp = exp + 30
 
-        ElseIf difficulty2 = "Deathly" Then
-            exp = exp + 40
-        End If
+    '    ElseIf difficulty2 = "Deathly" Then
+    '        exp = exp + 40
+    '    End If
 
-        'Assigns experience depending on difficulty of task and determines whether the player levels up.
-        If exp = level Then
-            level = level + 10
-            levelUp = levelUp + 1
-        End If
+    '    'Assigns experience depending on difficulty of task and determines whether the player levels up.
+    '    If exp >= levelUp Then
+    '        levelUp = levelUp + 10
+    '        level = level + 1
+    '        exp = 0
+    '    End If
 
-        txtDifficulty2.Text = ""
-        txtTask2.Text = ""
-        Task2 = False
+    '    txtDifficulty2.Text = ""
+    '    txtTask2.Text = ""
+    '    Task2 = False
 
-    End Sub
 
-    Private Sub btnComplete3_Click(sender As Object, e As EventArgs) Handles btnComplete3.Click
-        'Creates a variable
-        Dim difficulty3 As String
-        'Assigns the variable with a value
-        difficulty3 = txtDifficulty1.Text
+    '    lblEXP.Text = ("EXP: " & exp)
+    '    lblLVL.Text = ("LVL: " & level)
 
-        'Checks for the difficulty of the task
-        If difficulty3 = "Easy" Then
-            exp = exp + 10
+    'End Sub
 
-        ElseIf difficulty3 = "Medium" Then
-            exp = exp + 20
+    'Private Sub btnComplete3_Click(sender As Object, e As EventArgs) Handles btnComplete3.Click
+    '    'Creates a variable
+    '    Dim difficulty3 As String
+    '    'Assigns the variable with a value
+    '    difficulty3 = txtDifficulty3.Text
 
-        ElseIf difficulty3 = "Hard" Then
-            exp = exp + 30
+    '    'Checks for the difficulty of the task
+    '    If difficulty3 = "Easy" Then
+    '        exp = exp + 10
 
-        ElseIf difficulty3 = "Deathly" Then
-            exp = exp + 40
-        End If
+    '    ElseIf difficulty3 = "Medium" Then
+    '        exp = exp + 20
 
-        'Assigns experience depending on difficulty of task and determines whether the player levels up.
-        If exp = level Then
-            level = level + 10
-            levelUp = levelUp + 1
-        End If
+    '    ElseIf difficulty3 = "Hard" Then
+    '        exp = exp + 30
 
-        txtDifficulty3.Text = ""
-        txtTask3.Text = ""
-        Task3 = False
-    End Sub
+    '    ElseIf difficulty3 = "Deathly" Then
+    '        exp = exp + 40
+    '    End If
+
+    '    'Assigns experience depending on difficulty of task and determines whether the player levels up.
+    '    If exp >= levelUp Then
+    '        levelUp = levelUp + 10
+    '        level = level + 1
+    '        exp = 0
+    '    End If
+
+    '    txtDifficulty3.Text = ""
+    '    txtTask3.Text = ""
+    '    Task3 = False
+
+
+    '    lblEXP.Text = ("EXP: " & exp)
+    '    lblLVL.Text = ("LVL: " & level)
+    'End Sub
 End Class
