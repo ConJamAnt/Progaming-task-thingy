@@ -1,9 +1,9 @@
-Public Class Form1
+2Public Class Form1
     'Creates variables
     Dim exp As Integer
     Dim levelUp As Integer = 50
     Dim level As Integer = 1
-    Dim difficulty() As String = {"Easy", "Medium", "Hard", "Deathly"}
+    Dim difficulty() As String = {"" ,"Easy", "Medium", "Hard", "Deathly"}
     Dim Task As String
     Dim difficultyselected As String
     Dim Task1 As Boolean = False
@@ -12,10 +12,10 @@ Public Class Form1
 
 
     Private Sub btntask_Click(sender As Object, e As EventArgs) Handles btnTaskComplete.Click
-        'Creates a variable
+          'Creates a variable
         Dim difficulty1 As String
         'Assigns the variable with a value
-        difficulty1 = ComboBox1.SelectedItem
+        difficulty1 = txtDifficulty1.Text
 
         'Checks for the difficulty of the task
         ''If difficulty1 = "Easy" Then
@@ -32,16 +32,17 @@ Public Class Form1
         ''End If
 
 
-        If difficulty(0) = difficulty1 Then
-                exp += 10
-            ElseIf difficulty(1) = difficulty1 Then
-                exp += 20
-            ElseIf difficulty(2) = difficulty1 Then
-                exp += 30
-            ElseIf difficulty(3) = difficulty1 Then
-                exp += 40
 
-            End If
+        If difficulty(1) = difficulty1 Then
+            exp += 10
+        ElseIf difficulty(2) = difficulty1 Then
+            exp += 20
+        ElseIf difficulty(3) = difficulty1 Then
+            exp += 30
+        ElseIf difficulty(4) = difficulty1 Then
+            exp += 40
+
+        End If
 
 
         'Assigns experience depending on difficulty of task and determines whether the player levels up.
